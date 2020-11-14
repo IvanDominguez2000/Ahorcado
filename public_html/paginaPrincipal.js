@@ -20,3 +20,16 @@
                     document.cookie = cname + "=" + cvalue + ";" + expires;
                 }
                 console.log(document.cookie);   
+                
+                
+            function obrirFinestres(){
+                paginaDibuix = window.open("PaginaDibuix.html", "PaginaDibuix", "top=25, left=1100, width=400, height=200");
+                paginaParaula = window.open("PaginaParaula.html", "PaginaParaula", "top=350, left=1100, width=400, height=200");
+                paginaEstadisticas = window.open("PaginaEstadisticas.html", "PaginaEstadisticas", "top=575, left=600, width=400, height=200");
+            }
+            function tancarFinestres(){
+                paginaDibuix.close();
+                paginaParaula.close();
+                paginaEstadisticas.close();     
+            }
+            
