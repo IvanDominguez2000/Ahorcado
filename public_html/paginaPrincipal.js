@@ -33,6 +33,15 @@
                 paginaEstadisticas.close();     
             }
             
+             let paginaDibuix, paginaParaula, paginaEstadisticas;
+            var listadepalabras, letra, palabraJuego;
+            var numeroDePalabras, numeroAleatorio, imagen;
+            var estadoPalabra = [];
+            var numeroAbandonos = 0;
+            var Palabraoculta = " ";
+            var palabraFinal = " ";
+            var numeroErrores = 0;
+
             function estadisticas(){
                 var cookieVictoria = getCookie("Ganadas");
                 var cookieDerrota = getCookie("Perdidas");
