@@ -33,3 +33,24 @@
                 paginaEstadisticas.close();     
             }
             
+            function estadisticas(){
+                var cookieVictoria = getCookie("Ganadas");
+                var cookieDerrota = getCookie("Perdidas");
+                var cookieAbandonar = getCookie("Abandonos");
+
+                paginaEstadisticas.window.onload = function() {
+                    paginaEstadisticas.window.document.getElementById("Ganadas").innerText = "Ganadas: " + cookieVictoria;
+                    paginaEstadisticas.window.document.getElementById("Perdidas").innerText = "Perdidas: " + cookieDerrota;
+                    paginaEstadisticas.window.document.getElementById("Abandonos").innerText = "Abandonos: " + cookieAbandonar;
+                };      
+            }
+            //actualitzem les cookies
+            function cambiarEstadisticas(){
+                var cookieVictoria = getCookie("Ganadas");
+                var cookieDerrota = getCookie("Perdidas");
+                var cookieAbandonar = getCookie("Abandonos");
+
+                paginaEstadisticas.window.document.getElementById("Ganadas").innerText = "Ganadas: " + cookieVictoria;
+                paginaEstadisticas.window.document.getElementById("Perdidas").innerText = "Perdidas: " + cookieDerrota;
+                paginaEstadisticas.window.document.getElementById("Abandonos").innerText = "Abandonos: " + cookieAbandonar;   
+            }
