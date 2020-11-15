@@ -21,12 +21,20 @@ function setCookie(cname, cvalue, exdays) {
 }
 console.log(document.cookie);
 
+let paginaDibuix, paginaParaula, paginaEstadisticas;
+var listadepalabras, numeroDePalabras, numeroAleatorio, palabraJuego;
+var numeroErrores = 0;
+var imagen, letra;
+var palabraFinal = " ";
+var numeroAbandonos = 0;
+var estadoPalabra = [];
+var Palabraoculta = " ";
+
 document.getElementById("finalizar").addEventListener("click", abandonar);
 document.getElementById("introducirLetra").addEventListener("click", introducirLetra);
 
 iniciarPartida();
 
-let paginaDibuix, paginaParaula, paginaEstadisticas;
 function abrirVentanas() {
     paginaDibuix = window.open("PaginaDibuix.html", "PaginaDibuix", "top=25, left=1100, width=400, height=200");
     paginaParaula = window.open("PaginaParaula.html", "PaginaParaula", "top=350, left=1100, width=400, height=200");
@@ -38,7 +46,6 @@ function cerrarVentanas() {
     paginaEstadisticas.close();
 }
 
-var listadepalabras, numeroDePalabras, numeroAleatorio, palabraJuego;
 function iniciarPartida() {
     var palabrasAñadidas = prompt("Escribe las palabras con las que quieres jugar:");
     //si el vector contiene "," , ponemos el .trim()para borrar los espacios si hay
@@ -90,7 +97,6 @@ function iniciarPartida() {
     estadisticas();
 }
 
-var Palabraoculta = " ";
 //preparamos la plabraOculta para empezar
 function palabraOculta() {
     paginaParaula.window.onload = function () {
@@ -102,7 +108,6 @@ function cambiarPalabraOculta() {
     paginaParaula.window.document.getElementById("Palabraoculta").innerText = Palabraoculta;
 }
 
-var estadoPalabra = [];
 function continuarPartida() {
     //cerramos las ventanas hijas para seguir jugando
     cerrarVentanas();
@@ -125,8 +130,6 @@ function continuarPartida() {
     estadisticas();
 }
 
-var numeroErrores = 0;
-var imagen;
 //cambiamos las imagenes segun van incrementando los errores
 function cambiarImagen(numeroErrores) {
     switch (numeroErrores) {
@@ -165,8 +168,6 @@ function cambiarImagen(numeroErrores) {
     paginaDibuix.window.document.getElementById("imagenPerdida").src = imagen;
 }
 
-var letra;
-var palabraFinal = " ";
 //introducir y comprobar las letras que añade
 function introducirLetra() {
 
@@ -224,7 +225,6 @@ function introducirLetra() {
     }
 }
 
-var numeroAbandonos = 0;
 function abandonar() {
     //si la cookie no ha estado definida la creamos con el valor 1
     if (getCookie('Abandonos') == 0) {
